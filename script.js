@@ -1,6 +1,9 @@
 var turn = 'X';
 var array = [2,3,4,5,6,7,8,9,10];
+var finsih = false;
+
 function clicked(a){
+    if(finsih || array[a-1]==-1 || array[a-1]==1)return;
     document.getElementsByClassName("boxText")[a-1].innerHTML = turn;
     if(turn=='X'){
         array[a-1]=1;
@@ -34,6 +37,7 @@ function checkWin(){
             changeTurn();
             document.getElementById("turnText").innerHTML = turn+" WON";
             turn = ' ';
+            finsih = true;
             return;
         }
     }
